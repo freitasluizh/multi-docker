@@ -13,7 +13,7 @@ after_success:
   - docker build -t freitasluizh/multi-nginx ./nginx
   - docker build -t freitasluizh/multi-server ./server
   - docker build -t freitasluizh/multi-worker ./worker
-  - echo "$DOCKER_PASSWORD" | docker login - u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push freitasluizh/multi-client
   - docker push freitasluizh/multi-nginx
   - docker push freitasluizh/multi-server
@@ -30,5 +30,6 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  secret_access_key: 
+     secure: $AWS_SECRET_KEY
   
