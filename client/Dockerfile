@@ -8,7 +8,7 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn run builder
+RUN yarn run build
 
 FROM nginx
 EXPOSE 3000
